@@ -44,21 +44,21 @@ class FontWeatherTests: XCTestCase {
     func testButtonTitle() {
         let button = UIButton()
         button.titleLabel?.font = UIFont.fontWeatherOfSize(30)
-        button.setTitle(String.fontWeatherIconWithName(.Time12), forState: .Normal)
+        button.setTitle(String.fontWeatherIconWithName(.Time12), for: UIControlState())
         XCTAssertEqual(button.titleLabel?.text, "\u{f089}")
     }
 
     func testBarItemTitle() {
         let barItem = UIBarButtonItem()
         let attributes = [NSFontAttributeName: UIFont.fontWeatherOfSize(20)] as Dictionary!
-        barItem.setTitleTextAttributes(attributes, forState: .Normal)
+        barItem.setTitleTextAttributes(attributes, for: UIControlState())
         barItem.title = String.fontWeatherIconWithName(.Time12)
         XCTAssertEqual(barItem.title, "\u{f089}")
     }
 
     func testIconImage() {
         let barItem = UIBarButtonItem()
-        barItem.image = UIImage.fontWeatherIconWithName(FontWeather.Time12, textColor: UIColor.blueColor(), size: CGSizeMake(4000, 4000), backgroundColor: UIColor.redColor())
+        barItem.image = UIImage.fontWeatherIconWithName(FontWeather.Time12, textColor: UIColor.blue, size: CGSize(width: 4000, height: 4000), backgroundColor: UIColor.red)
         XCTAssertNotNil(barItem.image)
     }
 }
